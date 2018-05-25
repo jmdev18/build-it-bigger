@@ -7,15 +7,19 @@ import android.widget.TextView;
 
 public class DisplayActivity extends AppCompatActivity {
 
+    public static final String JOKE_EXTRA = "joke";
+
     private String mJoke;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
-        Intent intent = getIntent();
-        mJoke = intent.getStringExtra(getString(R.string.joke_extra));
-        ((TextView) findViewById(R.id.joke_display_text)).setText(mJoke);
+        if (getIntent() != null) {
+            Intent intent = getIntent();
+            mJoke = intent.getStringExtra(JOKE_EXTRA);
+            ((TextView) findViewById(R.id.joke_display_text)).setText(mJoke);
+        }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -16,6 +16,9 @@ import com.udacity.gradle.builditbigger.jokedisplay.DisplayActivity;
 import java.io.IOException;
 
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+
+    public static final String JOKE_EXTRA = "joke";
+
     private static MyApi myApiService = null;
     private Context mContext;
 
@@ -50,7 +53,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     @Override
     protected void onPostExecute(String s) {
         Intent jokeIntent = new Intent(mContext, DisplayActivity.class);
-        jokeIntent.putExtra(mContext.getString(R.string.joke_extra), JokeLibrary.tellRandomJoke());
+        jokeIntent.putExtra(JOKE_EXTRA, JokeLibrary.tellRandomJoke());
         mContext.startActivity(jokeIntent);
     }
 }

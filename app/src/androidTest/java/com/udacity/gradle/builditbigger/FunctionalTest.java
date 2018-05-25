@@ -1,10 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.os.AsyncTask;
 import android.test.AndroidTestCase;
-import android.util.Pair;
-
 
 public class FunctionalTest extends AndroidTestCase {
     public void testAsyncTask() {
