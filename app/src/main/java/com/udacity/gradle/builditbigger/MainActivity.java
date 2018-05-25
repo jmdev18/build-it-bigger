@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -44,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Intent jokeIntent = new Intent(this, DisplayActivity.class);
-        jokeIntent.putExtra(getString(R.string.joke_extra), JokeLibrary.tellRandomJoke());
-        startActivity(jokeIntent);
+        new EndpointsAsyncTask(this).execute();
     }
 
 
