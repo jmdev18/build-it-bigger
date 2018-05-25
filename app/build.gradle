@@ -50,6 +50,12 @@ android {
     }
 }
 
+configurations {
+    all {
+        exclude module: 'httpclient'
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')
